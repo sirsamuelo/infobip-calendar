@@ -3,7 +3,7 @@ import TermItem from './TermItem'
 
 function TermsArray({terms}) {
   function randomBusy(){
-    return Math.random() > 0.75 ? true: false
+    return Math.random() > 0.70 ? true: false
   }
 
   return (

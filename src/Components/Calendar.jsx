@@ -76,8 +76,8 @@ function Calendar() {
                      {dates && 
                         dates.slice(1).map((terms,index) =>  
                         (
-                          <div className="terms-flex">
-                            <TermsArray terms={terms} key={index}/>
+                          <div className="terms-flex" key={index}>
+                            <TermsArray terms={terms} />
                           </div>
                         )
                         )

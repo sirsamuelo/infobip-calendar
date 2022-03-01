@@ -7,7 +7,7 @@ function TermItem({next,term,random}) {
   let closed =  term.includes('closed')
   let myClass = closed ? 'closed' : brekForLunch ? 'break' :  random ? 'busy' : 'free'
   return (
-      <Link to={`/${term}`} className={`appointment ${myClass}`} onClick={ (event) => closed ? event.preventDefault() : brekForLunch ? event.preventDefault() : random ? event.preventDefault() : event }>{`${term}-${next}`}</Link>
+      <Link to={`/${term}`} className={`appointment ${myClass}`} onClick={ (event) => closed ? event.preventDefault() : brekForLunch ? event.preventDefault() : random ? event.preventDefault() : event }>{closed ? 'closed' : `${term}-${next}`}</Link>
   )
 }
 

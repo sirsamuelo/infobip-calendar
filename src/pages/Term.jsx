@@ -3,28 +3,60 @@ import BgOverlay from '../Components/BgOverlay'
 import Button from '../Components/Button'
 import {useNavigate} from 'react-router-dom'
 import { toast } from 'react-toastify';
+import {useParams} from 'react-router-dom'
 
 function Term() {
     const [formData,setFormData] = useState({
         name: '',
         age: ''
     })
-
-    const [count,setCount] = useState(0)
-
     const navigate = useNavigate()
+    const {termId} = useParams()
+    
+    function parseData(someId){
+        var existing = localStorage.getItem('terms')
+        existing = existing ? existing.split(',') : []
+
+        if(existing.length < 2) {
+            existing.push(someId)
+            localStorage.setItem('terms',existing.toString())
+        } else {
+            toast.error('Only 2 terms can be selected at maximum')
+            navigate('/')
+        }
+
+        // const arr = localStorage.getItem('terms').split(',')
+        // console.log(arr)
+        // const localStorageData = localStorage.getItem('terms') ? localStorage.getItem('terms') : (localStorage.setItem('terms', someId))
+        // if(localStorageData) {
+        //     console.log(localStorageData.split(',').length)
+        // } 
+        
+    }
+
 
     function handleSubmit(e) {
         e.preventDefault()
-
+        // if(localStorage.getItem('terms').length > 2){
+        //     toast.error('You can choose only 2 terms')
+        //     navigate('/')
+        //     return
+        // }
         if(formData.age > 0 && formData.name.length > 0) {
-            toast.success('Data submitted')
+            parseData(termId)
+            // if(localStorageData.length < 2){
+            //     localStorage.setItem('terms',id)
+            //     toast.success('Term added')
+            //     navigate('/')
+            // } else {
+            //     toast.error('You can choose only 2 terms')
+            //     navigate('/')
+            //     return
+            // }
             setFormData({
                 name: '',
                 age: ''
             })
-            setCount(count => count + 1)
-            navigate('/')
         } else {
             toast.error('Please provide valid data')
         }

@@ -82,12 +82,6 @@ function Calendar() {
                         )
                         )
                      }
-                      
-                      {/* // terms.map((singleTerm,index,elements) => {
-                      //   let next = elements[index+1]
-                      //   if(next) return <TermItem singleTerm={singleTerm} next={next} key={index} />
-                      // }) */}
-                     
             </div>
         </div>
         </div>

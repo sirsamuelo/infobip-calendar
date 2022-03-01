@@ -20,39 +20,19 @@ function Term() {
         if(existing.length < 2) {
             existing.push(someId)
             localStorage.setItem('terms',existing.toString())
+            toast.success('Term was submitted')
         } else {
             toast.error('Only 2 terms can be selected at maximum')
             navigate('/')
-        }
-
-        // const arr = localStorage.getItem('terms').split(',')
-        // console.log(arr)
-        // const localStorageData = localStorage.getItem('terms') ? localStorage.getItem('terms') : (localStorage.setItem('terms', someId))
-        // if(localStorageData) {
-        //     console.log(localStorageData.split(',').length)
-        // } 
-        
+        }       
     }
 
 
     function handleSubmit(e) {
         e.preventDefault()
-        // if(localStorage.getItem('terms').length > 2){
-        //     toast.error('You can choose only 2 terms')
-        //     navigate('/')
-        //     return
-        // }
+        
         if(formData.age > 0 && formData.name.length > 0) {
             parseData(termId)
-            // if(localStorageData.length < 2){
-            //     localStorage.setItem('terms',id)
-            //     toast.success('Term added')
-            //     navigate('/')
-            // } else {
-            //     toast.error('You can choose only 2 terms')
-            //     navigate('/')
-            //     return
-            // }
             setFormData({
                 name: '',
                 age: ''
@@ -71,7 +51,6 @@ function Term() {
 
   return (
     <>
-        <BgOverlay />
         <div className="container">
         <div className="home-section">
             <div className="home">

@@ -4,10 +4,12 @@ import Home from './pages/Home'
 import Term from './pages/Term'
 import { ToastContainer } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
+import BgOverlay from './Components/BgOverlay'
 
 function App() {
   return (
     <>
+      <BgOverlay />
       <Router>
         <Routes>
           <Route path="/" element={<Home />} />
